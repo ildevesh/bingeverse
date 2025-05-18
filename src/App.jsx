@@ -1,8 +1,32 @@
+import { useState } from 'react';
+import BottomNav from './components/BottomNav';
+import Home from './pages/Home';
+import Watchlist from './pages/Watchlist';
+import Liked from './pages/Liked';
+import Profile from './pages/Profile';
+
 function App() {
+  const [activeTab, setActiveTab] = useState('home');
+
+  const renderTab = () => {
+    switch (activeTab) {
+      case 'home':
+        return <Home />;
+      case 'watchlist':
+        return <Watchlist />;
+      case 'liked':
+        return <Liked />;
+      case 'profile':
+        return <Profile />;
+      default:
+        return <Home />;
+    }
+  };
+
   return (
-    <div className="p-4">
-      <h1 className="text-4xl font-bold text-purple-600">Tailwind 4 is working!</h1>
-      <p className="text-gray-700 mt-2">You're ready to move forward. 🚀</p>
+    <div className="pb-20 min-h-screen bg-gray-50">
+      {renderTab()}
+      <BottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
     </div>
   );
 }
