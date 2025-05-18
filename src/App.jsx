@@ -22,7 +22,15 @@ function App() {
         return <Home />;
     }
   };
+  function App() {
+    return (
+      <div className="h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 to-pink-500 text-white text-3xl font-bold">
+        Tailwind is working! 🎉
+      </div>
+    );
+  }
 
+  
   return (
     <div className="pb-20 min-h-screen bg-gray-50">
       {renderTab()}
